@@ -243,7 +243,7 @@ namespace UndertaleModTool
             Highlighted = new DescriptionView("Welcome to UndertaleModTool!", "Open a data.win file to get started, then double click on the items on the left to view them.");
             OpenInTab(Highlighted);
 
-            TitleMain = "UndertaleModTool by krzys_h v:" + Version;
+            TitleMain = "UndertaleModTool by krzys_h v:" + Version + ", DE Fork by Shadow Mario";
 
             CanSave = false;
             CanSafelySave = false;

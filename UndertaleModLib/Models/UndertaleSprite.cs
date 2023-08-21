@@ -201,11 +201,11 @@ public class UndertaleSprite : UndertaleNamedResource, PrePaddedObject, INotifyP
     public ObservableCollection<MaskEntry> CollisionMasks { get; private set; } = new ObservableCollection<MaskEntry>();
 
     // Special sprite types (always used in GMS2)
-    public uint SVersion { get; set; } = 1;
+    public uint SVersion { get; set; } = 3;
     public SpriteType SSpriteType { get; set; }
-    public float GMS2PlaybackSpeed { get; set; } = 15.0f;
+    public float GMS2PlaybackSpeed { get; set; } = 30.0f;
     public AnimSpeedType GMS2PlaybackSpeedType { get; set; } = 0;
-    public bool IsSpecialType { get; set; } = false;
+    public bool IsSpecialType { get; set; } = true;
 
     public int SpineVersion { get; set; }
     public int SpineCacheVersion { get; set; }

@@ -94,7 +94,7 @@ public class UndertaleGameObject : UndertaleNamedResource, INotifyPropertyChange
     /// <summary>
     /// The collision shape the game object should use.
     /// </summary>
-    public CollisionShapeFlags CollisionShape { get; set; } = CollisionShapeFlags.Circle;
+    public CollisionShapeFlags CollisionShape { get; set; } = CollisionShapeFlags.Box;
 
     /// <summary>
     /// The physics density of the game object.
@@ -129,7 +129,7 @@ public class UndertaleGameObject : UndertaleNamedResource, INotifyPropertyChange
     /// <summary>
     /// Whether this game object should start awake in the physics simulation.
     /// </summary>
-    public bool Awake { get; set; }
+    public bool Awake { get; set; } = true;
 
     /// <summary>
     /// Whether this game object is kinematic.

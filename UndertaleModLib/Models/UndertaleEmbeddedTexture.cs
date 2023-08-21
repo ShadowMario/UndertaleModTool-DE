@@ -34,7 +34,7 @@ public class UndertaleEmbeddedTexture : UndertaleNamedResource, IDisposable,
     /// <summary>
     /// Whether or not this embedded texture is scaled. TODO: i think this is wrong?
     /// </summary>
-    public uint Scaled { get; set; }
+    public uint Scaled { get; set; } = 1;
 
     /// <summary>
     /// The amount of generated mipmap levels. <br/>
