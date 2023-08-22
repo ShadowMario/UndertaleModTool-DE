@@ -76,6 +76,11 @@ void thing(bool isHelp = false)
 	else thing(); //Closed help list, open again
 }
 
+if(prefix == "")
+{
+	return;
+}
+
 TextureWorker worker = new TextureWorker();
 string texFolder = Path.GetDirectoryName(FilePath) + Path.DirectorySeparatorChar;
 
@@ -86,8 +91,9 @@ texFolder += prefix + Path.DirectorySeparatorChar;
 bool folderExists = Directory.Exists(texFolder);
 
 bool doIt = true;
-if (folderExists) doIt = ScriptQuestion("Folder \"" + prefix + "\" already exists, proceeding will overwrite it, are you okay with that?");
-else Directory.CreateDirectory(texFolder);
+if (folderExists) doIt = ScriptQuestion("Folder \"" + prefix + "\" already exists, proceeding will overwrite files, are you okay with that?");
+
+if(!doIt) return;
 
 string list = "";
 int found = 0;
@@ -96,8 +102,9 @@ for (int i = 0 ; i < Data.Sprites.Count ; i++)
 	addSpriteToList(Data.Sprites[i]);
 }
 
-if(found != 0)
+if(found > 0)
 {
+	if(!folderExists) Directory.CreateDirectory(texFolder);
 	Array.Resize(ref foundSprites, found);
 
 	SetProgressBar(null, "Sprites", 0, found);
