@@ -1,3 +1,8 @@
+# Dead Estate Fork
+This fork aims to fix small issues with GMS 2.3 de/compiling and add Scripts for Dead Estate.
+
+**Current decompiler accuracy:** 62.98% (1.03% improvement from original, we still have a long way to go with it...)
+
 # UndertaleModTool
 
 [![Underminers Discord](https://img.shields.io/discord/566861759210586112?label=Discord&logo=discord&logoColor=white)](https://discord.gg/hnyMDypMbN) [![GitHub](https://img.shields.io/github/license/krzys-h/UndertaleModTool?logo=github)](https://github.com/krzys-h/UndertaleModTool/blob/master/LICENSE.txt)
