@@ -7,43 +7,47 @@ using System.Threading.Tasks;
 using UndertaleModLib.Util;
 
 string[] characterList = new string[] {
-	"Jeff A: sprTrucker",
-	"Jeff B: sprGnome",
-	"Jeff C: sprYoungJeff",
+	"Jeff A: Trucker",
+	"Jeff B: Gnome",
+	"Jeff C: YoungJeff",
 	"",
-	"Jules A: sprPlayer",
-	"Jules B: sprBallistic",
-	"Jules C: sprFaye",
+	"Jules A: Player",
+	"Jules B: Ballistic",
+	"Jules C: Faye",
 	"",
-	"Cordelia A: sprWitch",
-	"Cordelia B: sprGraduate",
-	"Cordelia C: sprCountess",
+	"Cordelia A: Witch",
+	"Cordelia B: Graduate",
+	"Cordelia C: Countess",
 	"",
-	"Fuji A: sprFuji",
-	"Fuji B: sprSenator",
-	"Fuji C: sprChamp",
+	"Fuji A: Fuji",
+	"Fuji B: Senator",
+	"Fuji C: Champ",
 	"",
-	"Boss A: sprBoss",
-	"Boss B: sprPringle",
-	"Boss C: sprSnake",
+	"Boss A: Boss",
+	"Boss B: Pringle",
+	"Boss C: Snake",
 	"",
-	"Luis A: sprLuis",
-	"Luis B: sprStan",
-	"Luis C: sprKusabi",
+	"Luis A: Luis",
+	"Luis B: Stan",
+	"Luis C: Kusabi",
 	"",
-	"Mumba A: sprMumba",
-	"Mumba B: sprMonster",
-	"Mumba C: sprBearMumba",
+	"Mumba A: Mumba",
+	"Mumba B: Monster",
+	"Mumba C: BearMumba",
 	"",
-	"Lydia A: sprLydia",
-	"Lydia B: sprJS",
-	"Lydia C: sprGoddessLydia",
+	"Lydia A: Lydia",
+	"Lydia B: JS",
+	"Lydia C: GoddessLydia",
 	"",
-	"Digby A: sprDigby",
-	"Digby B: sprFunk",
-	"Digby C: sprMob",
+	"Digby A: Digby",
+	"Digby B: Funk",
+	"Digby C: Mob",
 	"",
-	"Axel Sprites aren't on data.win (as far as i'm concerned)"
+	"Axel Sprites aren't on data.win (as far as i'm concerned)",
+	"",
+	"To Use this Script on a Custom Character,",
+	"just insert their sprite prefix without the 'spr',",
+	"ex: If my character is 'sprCustomChar', set it to CustomChar"
 };
 
 string[] directions = new string[] {"South", "Southeast", "East", "Northeast", "North", "Northwest", "West", "Southwest"};
@@ -59,7 +63,7 @@ thing();
 void thing(bool isHelp = false)
 {
 	string resultStr = "";
-	if (!isHelp) resultStr = ScriptInputDialog(ScriptPath, "Insert a Sprite Prefix (\"help\" to show list):", "sprPlayer", "Cancel", "Extract", true, false);
+	if (!isHelp) resultStr = ScriptInputDialog(ScriptPath, "Insert a Sprite Prefix (\"help\" to show list):", "Player", "Cancel", "Extract", true, false);
 	else resultStr = SimpleTextInput(ScriptPath, "List of Sprites:", string.Join("\n", characterList), true);
 
 	if(!isHelp)
@@ -81,6 +85,7 @@ if(prefix == "")
 	return;
 }
 
+prefix = "spr" + prefix;
 TextureWorker worker = new TextureWorker();
 string texFolder = Path.GetDirectoryName(FilePath) + Path.DirectorySeparatorChar;
 
@@ -89,11 +94,6 @@ Array.Resize(ref foundSprites, spriteList.Length + (directionalSpriteList.Length
 
 texFolder += prefix + Path.DirectorySeparatorChar;
 bool folderExists = Directory.Exists(texFolder);
-
-bool doIt = true;
-if (folderExists) doIt = ScriptQuestion("Folder \"" + prefix + "\" already exists, proceeding will overwrite files, are you okay with that?");
-
-if(!doIt) return;
 
 string list = "";
 int found = 0;
@@ -126,11 +126,13 @@ async Task DumpSprites()
 
 bool addSpriteToList(UndertaleSprite sprite)
 {
+	if(sprite == null) return false;
+
 	for (int i = 0 ; i < directionalSpriteList.Length ; i++)
 	{
 		for (int j = 0 ; j < directions.Length ; j++)
 		{
-			if(sprite != null && sprite.Name.Content.ToLower() == (prefix.ToLower() + directionalSpriteList[i].ToLower() + directions[j].ToLower()))
+			if(sprite.Name.Content.ToLower() == (prefix.ToLower() + directionalSpriteList[i].ToLower() + directions[j].ToLower()))
 			{
 				foundSprites[found] = sprite;
 				list += '\n' + sprite.Name.Content;
@@ -142,7 +144,7 @@ bool addSpriteToList(UndertaleSprite sprite)
 	
 	for (int i = 0 ; i < spriteList.Length ; i++)
 	{
-		if(sprite != null && sprite.Name.Content.ToLower() == (prefix.ToLower() + spriteList[i].ToLower()))
+		if(sprite.Name.Content.ToLower() == (prefix.ToLower() + spriteList[i].ToLower()))
 		{
 			foundSprites[found] = sprite;
 			list += '\n' + sprite.Name.Content;
