@@ -69,8 +69,7 @@ void makeSprites()
 	newSprite.OriginY = (int) Math.Floor((double) rows / 2);
 	Data.Sprites.Add(newSprite);
 
-	int sprCount = (int) Math.Floor(originalWidth / (double) columns) * (int) Math.Floor(originalHeight / (double) rows);
-	for (int i = 0 ; i < sprCount ; i++)
+	for (int i = 0 ; i < layers ; i++)
 	{
 		UndertaleTexturePageItem newItem = new UndertaleTexturePageItem();
 		newItem.Name = new UndertaleString("PageItem " + Data.TexturePageItems.Count);
