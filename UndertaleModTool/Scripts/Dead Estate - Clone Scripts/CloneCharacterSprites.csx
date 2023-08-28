@@ -51,8 +51,6 @@ else
 	ScriptError("The Character prefix you've put is incorrect");
 }
 
-UndertaleSprite[] clonedSprites = new UndertaleSprite[10000];
-UndertaleTexturePageItem[] clonedItems = new UndertaleTexturePageItem[10000];
 void cloneSprites()
 {
 	int sprites = 0;
