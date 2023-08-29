@@ -36,7 +36,6 @@ if(clonePrefix == "")
 	return;
 }
 
-TextureWorker worker = new TextureWorker();
 if(File.Exists(Path.Combine(Path.GetDirectoryName(ScriptPath), "CloneImages") + "\\" + character + ".txt"))
 {
 	clonePrefix = "spr" + clonePrefix.Replace(" ", "_");
@@ -72,7 +71,7 @@ void cloneSprites()
 			{
 				case 9:
 					newSprite = new UndertaleSprite();
-					newSprite.Name = new UndertaleString(clonePrefix + split[0]);
+					newSprite.Name = Data.Strings.MakeString(clonePrefix + split[0]);
 					newSprite.Width = uint.Parse(split[1]);
 					newSprite.Height = uint.Parse(split[2]);
 					newSprite.MarginLeft = int.Parse(split[3]);

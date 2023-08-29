@@ -44,7 +44,6 @@ int columns = int.Parse(dimArray[0]);
 int rows = int.Parse(dimArray[1]);
 int layers = int.Parse(dimArray[2]);
 
-TextureWorker worker = new TextureWorker();
 if(layers < 1)
 {
 	ScriptError("Invalid height for this model, stopping script.");
@@ -56,9 +55,8 @@ ScriptMessage("Script finished");
 
 void makeSprites()
 {
-	UndertaleSprite newSprite = null;
-	newSprite = new UndertaleSprite();
-	newSprite.Name = new UndertaleString(spriteName);
+	UndertaleSprite newSprite = new UndertaleSprite();
+	newSprite.Name = Data.Strings.MakeString(spriteName);
 	newSprite.Width = (uint) columns;
 	newSprite.Height = (uint) rows;
 	newSprite.MarginLeft = 0;
@@ -97,7 +95,6 @@ void cloneEmbeddedTexture()
 {
 	try
 	{
-		ImageConverter converter = new ImageConverter();
 		Bitmap bitmap = new Bitmap(imgPath);
 		bitmap.SetResolution(96.0F, 96.0F);
 
@@ -112,6 +109,8 @@ void cloneEmbeddedTexture()
 		embed = new UndertaleEmbeddedTexture();
 		embed.Name = new UndertaleString("Texture " + Data.EmbeddedTextures.Count);
 		embed.Scaled = 1;
+
+		ImageConverter converter = new ImageConverter();
 		embed.TextureData.TextureBlob = (byte[]) converter.ConvertTo(bitmap, typeof(byte[]));
 		Data.EmbeddedTextures.Add(embed);
 	}
