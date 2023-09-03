@@ -11,7 +11,7 @@ string[] characterList = new string[] {
 	"Jeff - NOT FUNCTIONAL YET",
 	"Cordelia - NOT FUNCTIONAL YET",
 	"Fuji - NOT FUNCTIONAL YET",
-	"Boss - NOT FUNCTIONAL YET",
+	"Boss",
 	"Luis - NOT FUNCTIONAL YET",
 	"Mumba - NOT FUNCTIONAL YET",
 	"Lydia - NOT FUNCTIONAL YET",
