@@ -1,5 +1,5 @@
 # Dead Estate Fork
-This fork aims to fix small issues with GMS 2.3 de/compiling and add Scripts for Dead Estate.
+This fork aims to fix small issues with GMS 2.3 de/compiling and add Scripts for Dead Estate, along with changing default objects variable values for matching with Dead Estate's GMS version.
 
 **Current decompiler accuracy:** 62.98% (1.03% improvement from original, we still have a long way to go with it...)
 
